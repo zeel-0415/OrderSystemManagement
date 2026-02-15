@@ -1,0 +1,26 @@
+package com.assignment.ordersystem.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    private double price;
+
+    private boolean enabled = true;
+
+    @ManyToOne
+    private Category category;
+}
